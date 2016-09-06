@@ -8,11 +8,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TagExpression {
+import static java.util.Arrays.asList;
+
+public class TagExpressionOld {
     private final Map<String, Integer> limits = new HashMap<String, Integer>();
     private And and = new And();
 
-    public TagExpression(List<String> tagExpressions) {
+    public static boolean isOldTagExpression(String[] tagExpressions) {
+        return isOldTagExpression(asList(tagExpressions));
+    }
+
+    public static boolean isOldTagExpression(List<String> tagExpressions) {
+        return !tagExpressions.isEmpty() && (tagExpressions.size() > 1 || tagExpressions.get(0).contains(",") || tagExpressions.get(0).contains("~"));
+    }
+
+    public TagExpressionOld(List<String> tagExpressions) {
         for (String tagExpression : tagExpressions) {
             add(tagExpression.split("\\s*,\\s*"));
         }

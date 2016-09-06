@@ -102,7 +102,7 @@ public class Runtime {
         this.filters = new ArrayList<PicklePredicate>();
         List<String> tagFilters = runtimeOptions.getTagFilters();
         if (!tagFilters.isEmpty()) {
-            this.filters.add(new TagPredicate(tagFilters));
+            this.filters.add(TagPredicate.create(tagFilters));
         }
         List<Pattern> nameFilters = runtimeOptions.getNameFilters();
         if (!nameFilters.isEmpty()) {
