@@ -8,6 +8,13 @@ You can [run](https://cukes.info/docs/reference/jvm#running) it with the tool of
 
 Cucumber-JVM also integrates with all the popular [Dependency Injection containers](https://cukes.info/docs/reference/java-di).
 
+## Alterations made by Tricode
+Only the Spring project has been altered to allow multiple threads to register classes when using the SpringFactory class.
+This has been done by making the registerStepClassBeanDefinition method both static and synchronized.
+
+This alteration has been made for the Test Automation Framework project (test-framework)
+
+
 ## Documentation
 
 [Start Here](https://cukes.info/docs).
