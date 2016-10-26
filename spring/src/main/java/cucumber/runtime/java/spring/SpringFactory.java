@@ -149,7 +149,7 @@ public class SpringFactory implements ObjectFactory {
         return !beanFactory.equals(testContextManager.getBeanFactory());
     }
 
-    private void registerStepClassBeanDefinition(ConfigurableListableBeanFactory beanFactory, Class<?> stepClass) {
+    private synchronized static void registerStepClassBeanDefinition(ConfigurableListableBeanFactory beanFactory, Class<?> stepClass) {
         BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
         BeanDefinition beanDefinition = BeanDefinitionBuilder
                 .genericBeanDefinition(stepClass)
